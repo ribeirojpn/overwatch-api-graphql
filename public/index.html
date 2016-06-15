@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>OverwatchGraphQL API</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="javascript/index.js" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Overwatch Heroes GraphQL API</h1>
+      <form>
+        <div class="form-group">
+          <label for="#tag" class="control-label">Hero Tag</label>
+          <div class="">
+            <input type="text" class="form-control" id="tag" placeholder="Ex: soldier-76">
+          </div>
+        </div>
+        <div class="form-group checkbox-group">
+          <label for="">Fields</label>
+          <div class="">
+
+            <div class="checkbox col-sm-2">
+              <label>
+                <input type="checkbox" value="name"> Name
+              </label>
+            </div>
+            <div class="checkbox col-sm-2">
+              <label>
+                <input type="checkbox" value="real_name"> Real Name
+              </label>
+            </div>
+            <div class="checkbox col-sm-2">
+              <label>
+                <input type="checkbox" value="age"> Age
+              </label>
+            </div>
+            <div class="checkbox col-sm-2">
+              <label>
+                <input type="checkbox" value="description"> Description
+              </label>
+            </div>
+            <div class="checkbox col-sm-2">
+              <label>
+                <input type="checkbox" value="role"> Role
+              </label>
+            </div>
+            <div class="checkbox col-sm-2">
+              <label>
+                <input type="checkbox" value="occupation"> Occupation
+              </label>
+            </div>
+            <div class="checkbox col-sm-2">
+              <label>
+                <input type="checkbox" value="base"> Base
+              </label>
+            </div>
+            <div class="checkbox col-sm-2">
+              <label>
+                <input type="checkbox" value="affiliation"> Affiliation
+              </label>
+            </div>
+            <div class="checkbox col-sm-2">
+              <label>
+                <input type="checkbox" value="url"> URL
+              </label>
+            </div>
+            <div class="checkbox col-sm-2">
+              <label>
+                <input type="checkbox" value="tag"> tag
+              </label>
+            </div>
+            <div class="checkbox col-sm-2">
+              <label>
+                <input type="checkbox" value="abilities"> Abilities
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-primary" id="btn-request">Request</button>
+      <div class="json">
+        <pre id="response-json" class="">
+        </pre>
+      </div>
+    </div>
+  </body>
+</html>

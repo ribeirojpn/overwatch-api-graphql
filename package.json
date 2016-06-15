@@ -1,0 +1,12 @@
+{
+  "name": "overwatch-api-graphql",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Joao Paulo Ribeiro <jpnribeiro94@gmail.com>",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-graphql": "^0.5.3",
+    "graphql": "^0.6.0"
+  }
+}
