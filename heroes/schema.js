@@ -13,16 +13,16 @@ let abilitiesType = new graphql.GraphQLObjectType({
 let heroType = new graphql.GraphQLObjectType({
   name: 'Hero',
   fields: {
-    name: { type: graphql.GraphQLString },
-    real_name: { type: graphql.GraphQLString },
-    age: { type: graphql.GraphQLString },
-    description: { type: graphql.GraphQLString },
-    role: { type: graphql.GraphQLString },
-    occupation: { type: graphql.GraphQLString },
-    base: { type: graphql.GraphQLString },
-    affiliation: { type: graphql.GraphQLString },
-    url: { type: graphql.GraphQLString },
-    tag: { type: graphql.GraphQLString },
+    name: { type: new graphql.GraphQLNonNull(graphql.GraphQLString) },
+    real_name: { type: new graphql.GraphQLNonNull(graphql.GraphQLString) },
+    age: { type: new graphql.GraphQLNonNull(graphql.GraphQLString) },
+    description: { type: new graphql.GraphQLNonNull(graphql.GraphQLString) },
+    role: { type: new graphql.GraphQLNonNull(graphql.GraphQLString) },
+    occupation: { type: new graphql.GraphQLNonNull(graphql.GraphQLString) },
+    base: { type: new graphql.GraphQLNonNull(graphql.GraphQLString) },
+    affiliation: { type: new graphql.GraphQLNonNull(graphql.GraphQLString) },
+    url: { type: new graphql.GraphQLNonNull(graphql.GraphQLString)},
+    tag: { type: new graphql.GraphQLNonNull(graphql.GraphQLString) },
     abilities: { type: new graphql.GraphQLList(abilitiesType) }
   }
 })
@@ -75,35 +75,42 @@ let schema = new graphql.GraphQLSchema({
         args: {
           name: {
             name: 'name',
-            type: graphql.GraphQLString
+            type: graphql.GraphQLString,
           },
           real_name: {
             name: 'real_name',
-            type: graphql.GraphQLString
+            type: graphql.GraphQLString,
+            defaultValue: "Unknown"
           },
           age: {
             name: 'age',
-            type: graphql.GraphQLString
+            type: graphql.GraphQLString,
+            defaultValue: "Unknown"
           },
           description: {
             name: 'description',
-            type: graphql.GraphQLString
+            type: graphql.GraphQLString,
+            defaultValue: "Unknown"
           },
           role: {
             name: 'role',
-            type: graphql.GraphQLString
+            type: graphql.GraphQLString,
+            defaultValue: "Offense"
           },
           occupation: {
             name: 'occupation',
-            type: graphql.GraphQLString
+            type: graphql.GraphQLString,
+            defaultValue: "Unknown"
           },
           base: {
             name: 'base',
-            type: graphql.GraphQLString
+            type: graphql.GraphQLString,
+            defaultValue: "Unknown"
           },
           affiliation: {
             name: 'affiliation',
-            type: graphql.GraphQLString
+            type: graphql.GraphQLString,
+            defaultValue: "Unknown"
           },
         },
         resolve: function (obj, args) {
@@ -121,7 +128,7 @@ let schema = new graphql.GraphQLSchema({
             abilities: []
           }
 
-          heroes.push(hero);
+          heroes.push(hero)
 
           console.log('create hero: ',hero.tag)
           return hero;
