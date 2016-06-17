@@ -75,7 +75,7 @@ let schema = new graphql.GraphQLSchema({
         args: {
           name: {
             name: 'name',
-            type: graphql.GraphQLString,
+            type: new graphql.GraphQLNonNull(graphql.GraphQLString),
           },
           real_name: {
             name: 'real_name',
@@ -117,7 +117,7 @@ let schema = new graphql.GraphQLSchema({
           var hero = {
             name: args.name,
             real_name: args.real_name,
-            tag: args.name.toLowerCase(),
+            tag: args.name.toLowerCase().split(/\W+/g).join('-'),
             age: args.age,
             description: args.description,
             role: args.role,
