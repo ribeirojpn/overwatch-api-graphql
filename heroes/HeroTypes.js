@@ -1,7 +1,16 @@
-import { GraphQLNonNull, GraphQLString, GraphQLObjectType,GraphQLList } from 'graphql'
+import { GraphQLNonNull, GraphQLString, GraphQLObjectType, GraphQLInputObjectType, GraphQLList } from 'graphql'
 
 let abilitiesType = new GraphQLObjectType({
   name: 'Abilities',
+  fields: {
+    name: { type: GraphQLString },
+    description: { type: GraphQLString },
+    icon_url: { type: GraphQLString }
+  }
+})
+
+let abilitiesInputType = new GraphQLInputObjectType({
+  name: 'AbilitiesInput',
   fields: {
     name: { type: GraphQLString },
     description: { type: GraphQLString },
@@ -26,4 +35,4 @@ let heroType = new GraphQLObjectType({
   }
 })
 
-export { heroType }
+export { heroType, abilitiesInputType }

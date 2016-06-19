@@ -1,5 +1,5 @@
-import { GraphQLObjectType, GraphQLNonNull, GraphQLString } from 'graphql'
-import { heroType } from './HeroTypes'
+import { GraphQLObjectType, GraphQLNonNull, GraphQLString, GraphQLList } from 'graphql'
+import { heroType, abilitiesInputType } from './HeroTypes'
 
 export default new GraphQLObjectType({
 	name: 'Mutation',
@@ -46,6 +46,16 @@ export default new GraphQLObjectType({
 					type: GraphQLString,
 					defaultValue: "Unknown"
 				},
+				url: {
+					name: 'url',
+					type: GraphQLString,
+					defaultValue: "Unknown"
+				},
+				abilities: {
+					name: 'abilities',
+					type: new GraphQLList(abilitiesInputType),
+					defaultValue: []
+				},
 			},
 			resolve: (obj, args) => {
 				var hero = {
@@ -59,7 +69,7 @@ export default new GraphQLObjectType({
 					base: args.base,
 					affiliation: args.affiliation,
 					url: "https://playoverwatch.com/en-us/heroes/",
-					abilities: []
+					abilities: args.abilities
 				}
 
 				console.log('create hero: ',hero.tag)
