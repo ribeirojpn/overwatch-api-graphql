@@ -1,5 +1,8 @@
 import { GraphQLObjectType, GraphQLNonNull, GraphQLString, GraphQLList } from 'graphql'
 import { heroType, abilitiesInputType } from './HeroTypes'
+import heroes from './ow_heroes.json'
+
+// TODO: Persistence
 
 export default new GraphQLObjectType({
 	name: 'Mutation',
@@ -74,6 +77,74 @@ export default new GraphQLObjectType({
 
 				console.log('create hero: ',hero.tag)
 				return hero;
+			}
+		},
+		updateHero: {
+			type: heroType,
+			args: {
+				tag: {
+					name: 'tag',
+					type: new GraphQLNonNull(GraphQLString),
+				},
+				name: {
+					name: 'name',
+					type: GraphQLString,
+				},
+				real_name: {
+					name: 'real_name',
+					type: GraphQLString,
+				},
+				age: {
+					name: 'age',
+					type: GraphQLString,
+				},
+				description: {
+					name: 'description',
+					type: GraphQLString,
+				},
+				role: {
+					name: 'role',
+					type: GraphQLString,
+				},
+				occupation: {
+					name: 'occupation',
+					type: GraphQLString,
+				},
+				base: {
+					name: 'base',
+					type: GraphQLString,
+				},
+				affiliation: {
+					name: 'affiliation',
+					type: GraphQLString,
+				},
+				url: {
+					name: 'url',
+					type: GraphQLString,
+				},
+				abilities: {
+					name: 'abilities',
+					type: new GraphQLList(abilitiesInputType)
+				},
+			},
+			resolve: (obj, args) => {
+				let response = null
+				heroes.forEach(function (hero) {
+					if (hero.tag === args.tag){
+						response = hero
+						return;
+					}
+				})
+				var items = Object.keys(args)
+
+				items.forEach((arg) =>{
+					if (arg !== 'tag'){
+						response[arg] = args[arg];
+					}
+				})
+
+				console.log('hero updated: ', response.tag)
+				return response;
 			}
 		}
 	}
