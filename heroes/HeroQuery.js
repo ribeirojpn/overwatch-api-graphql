@@ -19,12 +19,8 @@ export default new GraphQLObjectType({
 				}
 			},
 			resolve: (_, args) => {
-				let response = null
-				heroes.forEach(function (hero) {
-					if (hero.tag === args.tag){
-						response = hero
-						return;
-					}
+				let response = heroes.find(function (hero) {
+					return hero.tag === args.tag
 				})
 				return response;
 			}

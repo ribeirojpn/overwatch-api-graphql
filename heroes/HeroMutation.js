@@ -128,12 +128,13 @@ export default new GraphQLObjectType({
 				},
 			},
 			resolve: (obj, args) => {
-				let response = null
-				heroes.forEach(function (hero) {
-					if (hero.tag === args.tag){
-						response = hero
-						return;
+				let heroIndex = -1;
+				let response = heroes.find(function (hero, index) {
+					if (hero.tag === args.tag) {
+						heroIndex = index
+						return true
 					}
+					return false
 				})
 				var items = Object.keys(args)
 
@@ -143,8 +144,39 @@ export default new GraphQLObjectType({
 					}
 				})
 
+				heroes[heroIndex] = response;
+				console.log(JSON.stringify(heroes))
 				console.log('hero updated: ', response.tag)
 				return response;
+			}
+		},
+		deleteHero: {
+			type: heroType,
+			args: {
+				tag: {
+					name: 'tag',
+					type: new GraphQLNonNull(GraphQLString)
+				}
+			},
+			resolve: (obj, args) => {
+				console.log(heroes.length);
+				let heroIndex = -1;
+				let response = heroes.find(function (hero, index) {
+					if (hero.tag === args.tag) {
+						heroIndex = index
+						return true
+					}
+					return false
+				})
+
+				if (heroIndex < 0) {
+					console.log(`Hero not found: ${args.tag}`)
+					return response
+				}
+
+				heroes.splice(heroIndex,1)
+				console.log(`Hero deleted: ${args.tag}`)
+				return response
 			}
 		}
 	}
