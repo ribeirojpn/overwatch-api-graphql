@@ -1,4 +1,4 @@
-import { GraphQLObjectType, GraphQLList, GraphQLString} from 'graphql'
+import { GraphQLObjectType, GraphQLList, GraphQLString } from 'graphql'
 import { heroType } from './HeroTypes'
 import heroes from './ow_heroes.json'
 
