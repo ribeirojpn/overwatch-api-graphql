@@ -4,10 +4,18 @@
   "description": "",
   "main": "index.js",
   "author": "Joao Paulo Ribeiro <jpnribeiro94@gmail.com>",
+	"scripts": {
+		"start": "babel-node index",
+		"crawler": "babel-node crawler"
+	},
   "dependencies": {
     "express": "^4.13.4",
     "express-graphql": "^0.5.3",
-    "graphql": "^0.6.0"
+    "graphql": "^0.6.0",
+		"jsonfile": "^2.3.1",
+    "request": "^2.72.0",
+		"async": "^2.0.0-rc.6",
+    "cheerio": "^0.20.0"
   },
   "devDependencies": {
     "babel": "^6.5.2",

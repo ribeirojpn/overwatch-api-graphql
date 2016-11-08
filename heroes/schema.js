@@ -11,7 +11,7 @@ import mutation from './HeroMutation'
  * - to create a new hero:
  *    http://localhost:3000/heroes?query=mutation{createHero(name:"NewHero",real_name:"A New Hero"){name,real_name,tag}}
  */
- 
+
 export default new GraphQLSchema({
   query: query,
   mutation: mutation
