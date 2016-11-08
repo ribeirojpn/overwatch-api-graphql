@@ -1,13 +1,21 @@
 {
   "name": "overwatch-api-graphql",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.3.0",
+  "description": "An Overwatch GRAPH API made ​​with Node.js and GraphQL. (not official)",
   "main": "index.js",
   "author": "Joao Paulo Ribeiro <jpnribeiro94@gmail.com>",
 	"scripts": {
 		"start": "babel-node index",
 		"crawler": "babel-node crawler"
 	},
+	"repository": {
+    "type": "git",
+    "url": "git+https://github.com/ribeirojpn/overwatch-api-graphql.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ribeirojpn/overwatch-api-graphql/issues"
+  },
+  "homepage": "https://github.com/ribeirojpn/overwatch-api-graphql#readme",
   "dependencies": {
     "express": "^4.13.4",
     "express-graphql": "^0.5.3",
