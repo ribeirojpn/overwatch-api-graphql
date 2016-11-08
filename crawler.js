@@ -7,14 +7,15 @@ const URL = 'https://playoverwatch.com/en-us/heroes/'
 
 const heroesList = ['genji', 'mccree', 'pharah', 'reaper', 'soldier-76', 'tracer', 'bastion',
                     'hanzo', 'junkrat', 'mei', 'torbjorn', 'widowmaker', 'dva', 'reinhardt',
-                    'roadhog', 'winston', 'zarya', 'lucio', 'mercy', 'symmetra', 'zenyatta', 'ana', 'sombra']
+                    'roadhog', 'winston', 'zarya', 'lucio', 'mercy', 'symmetra', 'zenyatta',
+										'ana', 'sombra']
 
 let heroes = []
 
 function start () {
   var begin = Date.now()
   var end
-  async.each(heroesList, function (item, callback) {
+  async.each(heroesList, (item, callback) => {
     request(URL + item, (erro, response, body) => {
       let begin = Date.now()
       console.log('downloading:', URL + item)
@@ -50,7 +51,7 @@ function start () {
       console.log(end - begin, 'ms')
       callback()
     })
-  }, (err) => {
+  }, (erro) => {
     console.log('FINISHED!')
     console.log(end - begin, 'ms')
     saveJSON()
@@ -59,8 +60,8 @@ function start () {
 
 function saveJSON () {
   const file = './heroes/ow_heroes.json'
-  jsonfile.writeFile(file, heroes, {spaces: 2}, (err) => {
-    if (err) console.log(err)
+  jsonfile.writeFile(file, heroes, {spaces: 2}, (erro) => {
+    if (erro) console.log(erro)
   })
 }
 
