@@ -59,7 +59,7 @@ function start () {
 }
 
 function saveJSON () {
-  const file = './heroes/ow_heroes.json'
+  const file = './src/data/ow_heroes.json'
   jsonfile.writeFile(file, heroes, {spaces: 2}, (erro) => {
     if (erro) console.log(erro)
   })

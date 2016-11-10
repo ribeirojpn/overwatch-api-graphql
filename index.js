@@ -1,6 +1,6 @@
 import graphqlHTTP from 'express-graphql'
 import express from 'express'
-import heroes from './heroes/schema'
+import heroes from './src/schema'
 
 const app = express()
 

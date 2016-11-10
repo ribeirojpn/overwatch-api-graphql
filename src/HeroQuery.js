@@ -1,8 +1,8 @@
 import { GraphQLObjectType, GraphQLList, GraphQLString } from 'graphql'
 import { heroType } from './HeroTypes'
-import heroes from './ow_heroes.json'
+import heroes from './data/ow_heroes.json'
 
-export default new GraphQLObjectType({
+const Query = new GraphQLObjectType({
   name: 'Query',
   fields: {
     heroes: {
@@ -27,3 +27,5 @@ export default new GraphQLObjectType({
     }
   }
 })
+
+export default Query

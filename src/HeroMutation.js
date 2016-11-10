@@ -1,10 +1,10 @@
 import { GraphQLObjectType, GraphQLNonNull, GraphQLString, GraphQLList } from 'graphql'
 import { heroType, abilitiesInputType } from './HeroTypes'
-import heroes from './ow_heroes.json'
+import heroes from './data/ow_heroes.json'
 
 // TODO: Persistence
 
-export default new GraphQLObjectType({
+const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
     createHero: {
@@ -181,3 +181,5 @@ export default new GraphQLObjectType({
     }
   }
 })
+
+export default Mutation
