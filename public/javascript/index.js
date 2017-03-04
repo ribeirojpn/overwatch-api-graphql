@@ -6,7 +6,18 @@ $(document).ready(function () {
     $('#response-json').text(JSON.stringify(data, null, 2))
   })
 
+  $("input").keypress(function(event) {
+    if (event.which == 13) {
+        event.preventDefault()
+        request()
+    }
+  })
+
   $('#btn-request').click(function () {
+    request()
+  })
+
+  function request() {
     let queryString = ''
     let tag = $('#tag').val()
 
@@ -23,12 +34,11 @@ $(document).ready(function () {
         }
       }
     })
-
     $.ajax({
       method: 'GET',
       url: `/heroes?query={hero(tag:"${tag}"){${queryString}}}`
     }).done(function (data) {
       $('#response-json').text(JSON.stringify(data, null, 2))
     })
-  })
+  }
 })
