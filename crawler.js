@@ -8,7 +8,7 @@ const URL = 'https://playoverwatch.com/en-us/heroes/'
 const heroesList = ['genji', 'mccree', 'pharah', 'reaper', 'soldier-76', 'tracer', 'bastion',
                     'hanzo', 'junkrat', 'mei', 'torbjorn', 'widowmaker', 'dva', 'reinhardt',
                     'roadhog', 'winston', 'zarya', 'lucio', 'mercy', 'symmetra', 'zenyatta',
-										'ana', 'sombra','orisa']
+										'ana', 'sombra','orisa','doomfist']
 
 let heroes = []
 
